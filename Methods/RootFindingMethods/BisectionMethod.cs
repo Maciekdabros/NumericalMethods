@@ -8,17 +8,18 @@ namespace NumericalMethods
     {
         public static double F(double x)
         {
-            return x * x * x - 5 * x - 9;
+            return Pow(x, 3) - 4 * Pow(x, 2) + 1;
         }
 
         public static void Calculate()
         {
-            double x0 = 2, x1 = 3, e = 0.00001, x = 0;
+            double x0 = -1, x1 = 5, e = 0.00001, x = 0;
             int step = 1;
 
-            if (F(x0) * F(x1) > 0)
+            if (Sign(F(x0)) == Sign(F(x1)))
             {
-                Console.WriteLine("solution is not possible");
+                Console.WriteLine("Solution is not possible");
+                return;
             }
             while (Abs(F(x)) >= e)
             {

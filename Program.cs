@@ -8,9 +8,10 @@ namespace NumericalMethods
         private static void Main(string[] args)
         {
             Stopwatch stopwatch = new();
+
             stopwatch.Start();
 
-            SimpsonRule.Calculate();
+            BisectionMethod.Calculate();
 
             stopwatch.Stop();
 

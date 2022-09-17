@@ -1,15 +1,17 @@
-﻿namespace NumericalMethods
+﻿using static System.Math;
+
+namespace NumericalMethods
 {
     public class SimpsonRule
     {
         public static double F(double x)
         {
-            return x * x + 2 * x + 4;
+            return 1 / (1 + Pow(x, 2));
         }
 
         public static void Calculate()
         {
-            const int n = 10000;
+            int n = 3000;
             double xp = 0, xk = 1, s = 0, st = 0, dx = (xk - xp) / n, x;
 
             for (int i = 1; i <= n; i++)
