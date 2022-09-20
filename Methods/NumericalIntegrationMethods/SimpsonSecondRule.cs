@@ -6,15 +6,15 @@ namespace NumericalMethods.Methods
     {
         public static double F(double x)
         {
-            return 1 / (1 + Pow(x, 2));
+            return Cos(x) + x * x - 5;
         }
 
         public static void Calculate()
         {
-            int n = 3000;
-            double xp = 0, xk = 1, s = F(xp) + F(xk), dx = (xk - xp) / n, x;
+            int n = 10000;
+            double xp = 0, xk = 2, s = F(xp) + F(xk), dx = (xk - xp) / n, x;
 
-            for (int i = 1; i <= n - 1; i++)
+            for (int i = 1; i < n; i++)
             {
                 x = xp + i * dx;
 

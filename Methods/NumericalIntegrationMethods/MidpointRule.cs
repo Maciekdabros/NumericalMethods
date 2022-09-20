@@ -1,8 +1,8 @@
 ﻿using static System.Math;
 
-namespace NumericalMethods
+namespace NumericalMethods.Methods.NumericalIntegrationMethods
 {
-    public class TrapezoidalRule
+    public class MidpointRule
     {
         public static double F(double x)
         {
@@ -12,15 +12,15 @@ namespace NumericalMethods
         public static void Calculate()
         {
             int n = 10000;
-            double x0 = 0, x1 = 2, h = (x1 - x0) / n, s = F(x0) + F(x1), x;
+            double x0 = 0, x1 = 2, h = (x1 - x0) / n, s = 0, x;
 
-            for (int i = 1; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                x = x0 + i * h;
-                s += 2 * F(x);
+                x = x0 + h / 2 + i * h;
+                s += F(x);
             }
 
-            s = s * h / 2;
+            s *= h;
             Console.WriteLine(s);
         }
     }
