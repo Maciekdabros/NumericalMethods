@@ -1,4 +1,5 @@
 ﻿using NumericalMethods.Methods;
+using NumericalMethods.Methods.InterpolationMethods;
 using NumericalMethods.Methods.LinearEquationMethods;
 using NumericalMethods.Methods.NumericalIntegrationMethods;
 using NumericalMethods.Methods.OrdinaryDifferentialEquationsMethods;
@@ -10,8 +11,7 @@ namespace NumericalMethods
     {
         private static void Main(string[] args)
         {
-            JacobiMethod.Calculate();
-            GaussSeidel.Calculate();
+            LinearInterpolation.Calculate();
         }
     }
 }

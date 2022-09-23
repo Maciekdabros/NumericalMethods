@@ -23,8 +23,8 @@ namespace NumericalMethods.Methods
             {
                 x1 = G(x0);
                 Console.WriteLine($"Iteration:{step} x={x1} f(x) ={F(x1)}");
-                step++;
                 x0 = x1;
+                step++;
             };
         }
     }
