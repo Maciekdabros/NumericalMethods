@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NumericalMethods": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "R_HOME": "C:\\Program Files\\R\\R-4.2.2\\"
+      }
+    }
+  }
+}

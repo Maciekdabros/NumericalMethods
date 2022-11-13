@@ -1,4 +1,5 @@
-﻿using static System.Math;
+﻿using BenchmarkDotNet.Attributes;
+using static System.Math;
 
 namespace NumericalMethods
 {
@@ -6,26 +7,27 @@ namespace NumericalMethods
     {
         public static double F(double x)
         {
-            return Cos(x) + x * x - 5;
+            return x * x * x - 4 * x * x + 1;
         }
 
-        public static void Calculate()
+        [Benchmark]
+        public double Calculate()
         {
             int n = 10000;
-            double xp = 0, xk = 2, s = 0, st = 0, dx = (xk - xp) / n, x;
+            double a = 0, b = 2, s = 0, st = 0, dx = (b - a) / n, x;
 
             for (int i = 1; i <= n; i++)
             {
-                x = xp + i * dx;
+                x = a + i * dx;
                 st += F(x - dx / 2);
 
                 if (i < n)
                     s += F(x);
             }
 
-            s = dx / 6 * (F(xp) + F(xk) + 2 * s + 4 * st);
+            s = dx / 6 * (F(a) + F(b) + 2 * s + 4 * st);
 
-            Console.WriteLine(s);
+            return s;
         }
     }
 }

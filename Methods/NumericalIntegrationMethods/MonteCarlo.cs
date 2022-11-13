@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Attributes;
+using System;
 using static System.Math;
 
 namespace NumericalMethods.Methods.NumericalIntegrationMethods
@@ -7,10 +8,11 @@ namespace NumericalMethods.Methods.NumericalIntegrationMethods
     {
         public static double F(double x)
         {
-            return Cos(x) + x * x - 5;
+            return Pow(x, 3) - 4 * Pow(x, 2) + 1;
         }
 
-        public static void Calculate()
+        [Benchmark]
+        public double Calculate()
         {
             int n = 10000;
             double x0 = 0, x1 = 2, funcVal, s = 0;
@@ -27,7 +29,7 @@ namespace NumericalMethods.Methods.NumericalIntegrationMethods
 
             s *= (x1 - x0) / n;
 
-            Console.WriteLine(s);
+            return s;
         }
     }
 }
