@@ -8,7 +8,7 @@ namespace NumericalMethods.Methods.InterpolationMethods
     public class LagrangeInterpolation
     {
         [Benchmark]
-        public double Calculate()
+        public double Equation1()
         {
             double xp = 18, yp = 0, n = 5;
 
@@ -27,9 +27,29 @@ namespace NumericalMethods.Methods.InterpolationMethods
                 }
                 yp += p * y[i];
             }
+            return yp;
+        }
 
-            //Console.WriteLine(yp);
+        [Benchmark]
+        public double Equation2()
+        {
+            double xp = 1.3, yp = 0, n = 10;
 
+            double[] x = new double[] { 0.2, 0.3, 0.5, 0.7, 0.8, 1, 1.4, 1.5, 1.8, 2 };
+            double[] y = new double[] { 1.14, 1.23, 1.41, 1.62, 1.74, 1.95, 2.12, 2.32, 2.47, 2.6 };
+
+            for (int i = 0; i < n; i++)
+            {
+                double p = 1;
+                for (int j = 0; j < n; j++)
+                {
+                    if (i != j)
+                    {
+                        p *= (xp - x[j]) / (x[i] - x[j]);
+                    }
+                }
+                yp += p * y[i];
+            }
             return yp;
         }
     }

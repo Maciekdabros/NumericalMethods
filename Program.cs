@@ -13,16 +13,10 @@ namespace NumericalMethods
     {
         private static void Main(string[] args)
         {
-            // GaussianElimination boole1 = new GaussianElimination();
-            // boole1.Equation1();
+            //GaussianElimination boole2 = new GaussianElimination();
+            //Console.WriteLine(boole2.Equation2());
 
-            GaussSeidel boole2 = new GaussSeidel();
-            boole2.Calculate();
-
-            //BenchmarkRunner.Run<GaussJordanMethod>();
-
-            // GaussJordanMethod boole = new GaussJordanMethod();
-            // boole.Calculate();
+            BenchmarkRunner.Run<GaussianElimination>();
         }
     }
 }

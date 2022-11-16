@@ -39,7 +39,7 @@ namespace NumericalMethods.Methods
                     s += 3 * F(x);
             }
 
-            s = s * dx * 3.0 / 8.0;
+            s = s * dx * 3 / 8;
 
             return s;
         }
@@ -60,7 +60,7 @@ namespace NumericalMethods.Methods
                     s += 3 * F2(x);
             }
 
-            s = s * dx * 3.0 / 8.0;
+            s = s * dx * 3 / 8;
 
             return s;
         }

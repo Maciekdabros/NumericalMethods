@@ -6,13 +6,25 @@ using static System.Math;
 
 namespace NumericalMethods.Methods
 {
+    public class Config : ManualConfig
+    {
+        public Config()
+        {
+            Add(CsvMeasurementsExporter.Default);
+            Add(RPlotExporter.Default);
+        }
+    }
+
+    // then on the class
+
+    [Config(typeof(Config))]
     public class GaussianElimination
     {
         [Benchmark]
         public double[] Equation1()
         {
             int n = 3;
-            double[,] a = new double[,] { { 3, 4, -5, 2 }, { 7, 4, 2, 6 }, { 8, 1, 4, 3 } };
+            double[,] a = new double[,] { { 4, 2, 1, 2 }, { 7, 10, 2, 6 }, { 6, 1, 12, 3 } };
             double[] x = new double[3];
 
             for (int i = 0; i < n; i++)
@@ -29,8 +41,6 @@ namespace NumericalMethods.Methods
                 }
             }
 
-            //Console.WriteLine(a);
-
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = i + 1; j < n; j++)
@@ -42,8 +52,6 @@ namespace NumericalMethods.Methods
                     }
                 }
             }
-
-            //Console.WriteLine(a);
 
             for (int i = n - 1; i >= 0; i--)
             {
@@ -64,8 +72,8 @@ namespace NumericalMethods.Methods
         public double[] Equation2()
         {
             int n = 5;
-            double[,] a = new double[,] { { 2, -3, -4, -3,-6,-6 }, { 4, 4, 2, -5,3,2 }, { 6, -7, -1, 0,2,7 },
-            { 1, 3, 8, 1,10,0 },{ 2, 1, 4, 2,4,2 }};
+            double[,] a = new double[,] { { 20, -3, -4, -3,-6,-6 }, { 4, 20, 2, -5,3,2 }, { 6, -7, 20, 0,2,7 },
+            { 1, 3, 8, 20,10,0 },{ 2, 1, 4, 2,20,2 }};
             double[] x = new double[5];
 
             for (int i = 0; i < n; i++)
@@ -82,8 +90,6 @@ namespace NumericalMethods.Methods
                 }
             }
 
-            //Console.WriteLine(a);
-
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = i + 1; j < n; j++)
@@ -95,8 +101,6 @@ namespace NumericalMethods.Methods
                     }
                 }
             }
-
-            //Console.WriteLine(a);
 
             for (int i = n - 1; i >= 0; i--)
             {
